@@ -1,24 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../Paginas/Carrinho.css'
+
 
 const Carrinho = () => {
     return (
     <div>
-        <p>Carrinho</p>
-        <h1>Página Inicial</h1>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="/adicionarpt">Adicionar</Link>
-            </li>
-            <li>
-              <Link to="/editar">Editar</Link>
-            </li>
-          </ul>
+      <header>
+        <nav className='caminho'>
+            <Link to="/home">Home &gt; {" "}</Link>
+            <Link to="/adicionarpt">Adicionar &gt; {" "}</Link>
+            <Link to="/editar">Editar &gt; {" "}</Link>
         </nav>
+        <h1>
+          Carrinho
+        </h1>
+      </header>
+  
       </div>
         ) 
  

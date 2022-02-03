@@ -6,24 +6,17 @@ const Adicionarpt   = () => {
     return (
     <div>
       <div>
-        <header>
+        <header>        
+          <nav className='caminho'>       
+              <Link to="/home">Home &gt;{" "} </Link>
+              <Link to="/carrinho">Carrinho &gt;{" "} </Link>
+              <Link to="/editar">Editar &gt;{" "}</Link>
+          </nav>
           <h1>Adicionar Produto</h1>
         </header>
       </div>
         
-        <nav>
-          <ul>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="/carrinho">Carrinho</Link>
-            </li>
-            <li>
-              <Link to="/editar">Editar</Link>
-            </li>
-          </ul>
-        </nav>
+
 
         <div class="container">
           <fieldset class="fieldset-border">
@@ -32,12 +25,15 @@ const Adicionarpt   = () => {
           <fieldset class="fieldset-border">
             <legend class="legend-border">Marca</legend>
           </fieldset>
-          <fieldset class="fieldset-border">
+          <div className="container-menor">
+            <fieldset class="fieldset-border">
             <legend class="legend-border">Valor</legend>
           </fieldset>
           <fieldset class="fieldset-border">
             <legend class="legend-border">Cor</legend>
           </fieldset>
+          </div>
+
 
         falta data de cadastro
 
