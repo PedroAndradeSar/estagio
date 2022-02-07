@@ -1,5 +1,12 @@
-div h1{
-    display: flex;
+header h1 {
     text-align: left;
-    
-}
+    width: 345px;
+    height: 47px;
+    margin-left: 261px;
+    top: 177px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 47px;
+  }

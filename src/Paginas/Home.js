@@ -1,38 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../Paginas/Home.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../Paginas/Home.css";
 
-
-
-const Home = () =>{
+const Home = () => {
   return (
-   <div>
-      <h1>Página Inicial</h1>
-      <nav className='navegacao'>
-        <ul>
-          <li>
-            <Link to="/carrinho">Carrinho</Link>
-          </li>
-          <li>
-            <Link to="/adicionarpt">Adicionar</Link>
-          </li>
-          <li> 
-            <Link to="/editar">Editar</Link>
-          </li>
-        </ul>
-      </nav>
-      <div>
-     
-      </div>
+    <div>
+      <header>
+        <nav className="caminho">
+          <Link to="/carrinho">Carrinho &gt; </Link>
+          <Link to="/adicionarpt">Adicionar &gt; </Link>
+          <Link to="/editar">Editar &gt; </Link>
+        </nav>
+        <h1>Página Inicial</h1>
+      </header>
+
+      <div></div>
 
       <div class="container">
         <fieldset class="fieldset-border">
           <legend class="legend-border">Teste</legend>
         </fieldset>
       </div>
-
-    </div> 
+    </div>
   );
-}
+};
 
 export default Home;

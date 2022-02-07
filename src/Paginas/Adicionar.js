@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Paginas/Adicionar.css";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+
 
 const Adicionarpt = () => {
   return (
@@ -17,7 +16,6 @@ const Adicionarpt = () => {
           <h1>Adicionar Produto</h1>
         </header>
       </div>
-
       <div class="container">
         <fieldset class="fieldset-border">
           <legend class="legend-border">Nome do Produto</legend>
@@ -25,44 +23,40 @@ const Adicionarpt = () => {
         <fieldset class="fieldset-border">
           <legend class="legend-border">Marca</legend>
         </fieldset>
-        <Box
-          component="form"
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "25ch" },
-          }}
-          noValidate
-          autoComplete="off"
-        ></Box>
-        <TextField
-          id="outlined-read-only-input"
-          label="Data"
-          defaultValue={"  "}
-          InputProps={{
-            readOnly: true,
-          }}
-        ></TextField>
-       
-      </div>
-      {/* <div>
-        <Box
-          component="form"
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "25ch" },
-          }}
-          noValidate
-          autoComplete="off"
-        ></Box>
-        <TextField
-          id="outlined-read-only-input"
-          label="Data"
-          defaultValue={"  "}
-          InputProps={{
-            readOnly: true,
-          }}
-        ></TextField>
-      </div> */}
 
-      <button className="botao"> Adicionar Produto </button>
+        {/* <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "25ch" },
+          }}
+          noValidate
+          autoComplete="off"
+        ></Box>
+        <TextField
+          id="outlined-read-only-input"
+          label="Data"
+          defaultValue={"  "}
+          InputProps={{
+            readOnly: true,
+          }}
+        ></TextField> */}
+
+        <div className="formulario_menor">
+          <fieldset class="formulario-border">
+            <legend class="border">Valor</legend>
+          </fieldset>
+          <fieldset class="formulario-border">
+            <legend class="border">Cor</legend>
+          </fieldset>
+        </div>
+      </div>
+      <div>
+        
+      </div>
+      <footer className="footer"> 
+         <button className="botao"> <h1>Adicionar Produto</h1> </button>
+      </footer>
+     
       falta data de cadastro
     </div>
   );
