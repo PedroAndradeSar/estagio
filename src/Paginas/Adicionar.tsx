@@ -16,12 +16,12 @@ const Adicionarpt = () => {
           <h1>Adicionar Produto</h1>
         </header>
       </div>
-      <div class="container">
-        <fieldset class="fieldset-border">
-          <legend class="legend-border">Nome do Produto</legend>
+      <div className="container">
+        <fieldset className="fieldset-border">
+          <legend className="legend-border">Nome do Produto</legend>
         </fieldset>
-        <fieldset class="fieldset-border">
-          <legend class="legend-border">Marca</legend>
+        <fieldset className="fieldset-border">
+          <legend className="legend-border">Marca</legend>
         </fieldset>
 
         {/* <Box
@@ -42,11 +42,11 @@ const Adicionarpt = () => {
         ></TextField> */}
 
         <div className="formulario_menor">
-          <fieldset class="formulario-border">
-            <legend class="border">Valor</legend>
+          <fieldset className="formulario-border">
+            <legend className="border">Valor</legend>
           </fieldset>
-          <fieldset class="formulario-border">
-            <legend class="border">Cor</legend>
+          <fieldset className="formulario-border">
+            <legend className="border">Cor</legend>
           </fieldset>
         </div>
       </div>

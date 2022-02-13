@@ -13,10 +13,10 @@ const Rota = () => {
    return(
        <BrowserRouter>
         <Routes>
-            <Route exact path="/home" element = {<Home />} />
-            <Route exact path="/carrinho" element = {<Carrinho   />} />
-            <Route exact path="/editar" element = {<Editar />} />
-            <Route exact path="/adicionarpt" element ={<Adicionarpt/>}/>
+            <Route  path="/home" element = {<Home />} />
+            <Route  path="/carrinho" element = {<Carrinho   />} />
+            <Route  path="/editar" element = {<Editar />} />
+            <Route  path="/adicionarpt" element ={<Adicionarpt/>}/>
             <Route index element={<Home/>}/>
         </Routes>
        </BrowserRouter>

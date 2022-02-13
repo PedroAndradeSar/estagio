@@ -16,13 +16,17 @@ const Home = () => {
 
       <div></div>
 
-      <div class="container">
-        <fieldset class="fieldset-border">
-          <legend class="legend-border">Teste</legend>
+      <div className="container">
+        <fieldset className="fieldset-border">
+          <legend className="legend-border">Teste</legend>
         </fieldset>
       </div>
+      
     </div>
   );
 };
+
+
+
 
 export default Home;
