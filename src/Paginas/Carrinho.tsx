@@ -4,6 +4,11 @@ import '../Paginas/Carrinho.css'
 
 
 const Carrinho = () => {
+
+
+
+
+
     return (
     <div>
       <header>
@@ -16,6 +21,10 @@ const Carrinho = () => {
           Carrinho
         </h1>
       </header>
+      <div>
+        
+
+      </div>
   
       </div>
         ) 

@@ -127,7 +127,7 @@ header h1 {
   width: 316.5px;
   height: 62.5px;
   margin-left: 261px;
-  top: 450px;
+  
   border-radius: 7px;
   margin-top: 32.5px;
   margin-bottom: 15px;
@@ -152,10 +152,10 @@ header h1 {
   width: 316.5px;
   height: 62.5px;
   margin-left: 261px;
-  top: 450px;
   border-radius: 7px;
   margin-top: 32.5px;
   margin-bottom: 15px;
+ 
 }
 
 .botton{

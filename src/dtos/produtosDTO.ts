@@ -1,15 +1,15 @@
 export class ProdutoDTO{
     nome:string;
     valor:string;
-    imagem:string;
+    foto:string;
     cor:number;
-    marca:number;
+    marca:string;
 
 
-    constructor(nome:string,valor:string,imagem:string,cor:number,marca:number){
+    constructor(nome:string,valor:string,foto:string,cor:number,marca:string){
         this.nome = nome;
         this.valor = valor;
-        this.imagem = imagem;
+        this.foto = foto;
         this.cor = cor;
         this.marca = marca;
     }
