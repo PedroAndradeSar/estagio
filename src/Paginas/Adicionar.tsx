@@ -46,10 +46,17 @@ const Adicionarpt = () => {
       marca: marca,
       cor: cor,
 
-    }).then((res) => {
+    }).then((res) => {//
       setFeedbackMessage("Produto Cadastrado com Sucesso")
       setSeverety('success')
       setIsOpen(true)
+
+      setNome('') //usado para limpar os campos caso a aplicação de certo o snackbar
+      setCor('')
+      setMarca('')
+      setValor('')
+
+
     }).catch((ex) => {
       setFeedbackMessage("Produto Não foi Cadastrado com Sucesso")
       console.error(ex)
@@ -108,25 +115,28 @@ const Adicionarpt = () => {
         <div>
           <div className="forms">
             <TextField className="forms"
+              value={nome}
               onChange={(event) => setNome(event.target.value)}
               label={'Nome do Produto'}
               variant="outlined" />
           </div>
           <div className="forms">
             <TextField
+              value={marca}
               onChange={(event) => setMarca(event.target.value)}
               label={'Marca do Produto'}
               variant="outlined" />
           </div>
           <div className="cash">
             <TextField
+              value={valor}
               onChange={(event) => setValor(event.target.value)}
               label={'Valor R$'}
               variant="outlined" />
           </div>
           <div className="forms">
             <TextField
-
+              value={cor}
               onChange={(event) => setCor(event.target.value)}
               label={'Cor'}
               variant="outlined" />
