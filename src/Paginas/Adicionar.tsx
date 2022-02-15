@@ -1,6 +1,7 @@
 import { valueToPercent } from "@mui/base";
 import { Alert, Button, Input, Snackbar, TextField } from "@mui/material";
 import axios from "axios";
+import { UploadImage } from "componentes/UploadImage";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Paginas/Adicionar.css";
@@ -152,6 +153,9 @@ const Adicionarpt = () => {
         </div>
       </div>
       <div>
+        <UploadImage />
+      </div>
+      <div>
         <div className="botton">
           <Button
             variant={'contained'}
@@ -164,8 +168,8 @@ const Adicionarpt = () => {
         </div>
         <div>
           {/* <footer className="footer">
-        <button className="botao"> <h1>Adicionar Produto</h1> </button>
-      </footer> */}
+           <button className="botao"> <h1>Adicionar Produto</h1> </button>
+            </footer> */}
         </div>
       </div>
       <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
