@@ -35,19 +35,24 @@ export function UploadImage() {
     return (
 
         <div style={{
-            width: '100',
-            height: '150px'
+            width: '150px',
+            height: '150px',
+
         }} >
             <input ref={uploadFile}
                 style={{ display: 'none' }}
                 type="file"
                 onChange={handleFile}
             />
-            <img src={`data:image/jpeg;base64.${image}`} alt="" />
+            <img style={
+                {
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                }
+            } src={`data:image/jpg;base64,${image}`} alt="" />
             <Button onClick={openFileExplorer} variant="outlined" />
-            <h3>
-                abrir explorer
-            </h3>
+            abrir explorer
         </div>
     );
 }

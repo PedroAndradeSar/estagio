@@ -6,7 +6,8 @@ import Rota from "./routes/routes";
 import { NodeAPI } from 'services/Services';
 import { AxiosResponse } from 'axios';
 import { ProdutoDTO } from 'dtos/produtosDTO';
-import Adicionarpt from 'Paginas/Adicionar';
+import { Adicionarpt } from 'Paginas/Adicionar';
+
 
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
 
 
       <div>
-        
+
         <Rota />
       </div>
     </div>
