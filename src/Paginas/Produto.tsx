@@ -16,21 +16,22 @@ export default function Produto(props: ProdutoProps) {
     const { produtoDTO } = props
     return (
         <>
-            <section className='content-product'>
+            <section className='containerproduto'>
                 <div className="img">
-                    <img src="imagens/im3.png" />
+                    <img src={`data:image/jpg;base64,${produtoDTO.foto}`} alt="" />
                 </div>
                 <div className="details">
                     <h2 className='camera'>{produtoDTO.nome}</h2>
-                    {/* <p className='descricao'>{produtoDTO.idmarca}</p> */}
+                    <p className='marca'>{produtoDTO.marca}</p>
                     <p className='valor'>R${produtoDTO.valor},00</p>
-                    {/* <p className='cor'>{produtoDTO.idcor}</p> */}
+                    <p className='cor'>{produtoDTO.cor}</p>
+
                 </div>
-                <div className="actions"><Button variant="outlined" onClick={() => { window.location.replace('/editarproduto/' + produtoDTO.nome) }}>
+                <div className="actions"><Button variant="outlined" onClick={() => { window.location.replace('/editar/' + produtoDTO.nome) }}>
                     Editar Produto
                 </Button>
                     <IconButton aria-label="delete"></IconButton>
-                    <Button variant="outlined" onClick={() => { window.location.replace('/deleteproduto') }}><DeleteIcon />
+                    <Button variant="outlined" onClick={() => { window.location.replace('/delete') }}><DeleteIcon />
                     </Button>
 
                     <IconButton aria-label="delete"></IconButton>
