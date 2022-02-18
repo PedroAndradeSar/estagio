@@ -145,8 +145,9 @@ import { Alert, Button, Input, Snackbar, TextField } from "@mui/material";
 import axios, { AxiosResponse } from "axios";
 import { UploadImage } from "componentes/UploadImage";
 import { ProdutoDTO } from "dtos/produtosDTO";
+import { link } from "fs";
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { NodeAPI } from "services/Services";
 import "../Paginas/Editar.css";
 
@@ -160,7 +161,7 @@ export function Editar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [severity, setSeverety] = useState<'success' | 'info' | 'warning' | 'error'>('success');
   const { id_produto } = useParams();
-
+  const navigate = useNavigate();
   const [feedbackMessage, setFeedbackMessage] = useState<string>('');
 
   async function closeSnackbar() {
@@ -196,26 +197,32 @@ export function Editar() {
 
 
   async function editarProduto() {
-    const produtoDTO = new ProdutoDTO(nome,
+    const produtoDTO = new ProdutoDTO(
+      nome,
       valor,
       foto,
       cor,
-      marca)
+      marca,
+      Number(id_produto))
     console.log(foto)
     try {
       const putResponse: AxiosResponse = await NodeAPI.put(
-        `${process.env.REACT_APP_API_URL}/produto`,
+        `${process.env.REACT_APP_API_URL}/produto/${id_produto}`,
         produtoDTO
       );
+
       setFeedbackMessage('Usuário cadastrado com sucesso');
       setSeverety('success');
       setIsOpen(true);
-
+      navigate('/home')
       setNome('');
       setValor(0);
       setCor('');
       setFoto('');
       setMarca('');
+      // if (nome === '') {//para nao criar campo vazio 
+      //   alert("nomevazil")
+      // }
       console.log(putResponse);
     } catch (error) {
       setFeedbackMessage('Usuário cadastrado não foi cadastrado');
@@ -227,6 +234,7 @@ export function Editar() {
 
   useEffect(() => {
     const getProduto = async () => {
+
       try {
         const getResponse = await NodeAPI.get(
           `${process.env.REACT_APP_API_URL}/produto/${id_produto}`
@@ -237,6 +245,7 @@ export function Editar() {
         setCor(getResponse.data.cor);
         setFoto(getResponse.data.foto);
         setMarca(getResponse.data.marca);
+
       } catch (error) {
 
       }
@@ -326,7 +335,7 @@ export function Editar() {
             onClick={() => editarProduto()}
           >
             <h3>
-              Adicionar Produto
+              Editar Produto
             </h3>
           </Button>
         </div>

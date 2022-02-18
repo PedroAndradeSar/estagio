@@ -4,7 +4,7 @@ import axios, { AxiosResponse } from "axios";
 import { UploadImage } from "componentes/UploadImage";
 import { ProdutoDTO } from "dtos/produtosDTO";
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { NodeAPI } from "services/Services";
 import "../Paginas/Adicionar.css";
 
@@ -17,7 +17,7 @@ export function Adicionarpt() {
   const [cor, setCor] = useState<string>('');
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [severity, setSeverety] = useState<'success' | 'info' | 'warning' | 'error'>('success');
-
+  const navigate = useNavigate();
   const [feedbackMessage, setFeedbackMessage] = useState<string>('');
 
   async function closeSnackbar() {
@@ -67,7 +67,7 @@ export function Adicionarpt() {
       setFeedbackMessage('Usuário cadastrado com sucesso');
       setSeverety('success');
       setIsOpen(true);
-
+      navigate('/home');
       setNome('');
       setValor(0);
       setCor('');
@@ -183,6 +183,7 @@ export function Adicionarpt() {
           sx={{ width: '100%' }}>
 
           {feedbackMessage}
+
         </Alert>
       </Snackbar>
     </div>

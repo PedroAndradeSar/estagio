@@ -21,7 +21,9 @@ const Home = () => {
       }
     }
     getProdutos();
-  }, [])
+  }, []);
+
+
 
 
   return (
@@ -36,15 +38,27 @@ const Home = () => {
         <div className="botton">
           <Button
             variant={'contained'}
-            onClick={() => <Link to="/adicionarpt">Adicionar &gt; </Link>}
-          >
+            onClick={() => <Link to="/adicionarpt">Adicionar &gt; </Link>}>
             <h3>
               Adicionar Produto
             </h3>
           </Button>
+
         </div>
       </Grid>
-      {/* <Grid>
+
+      <Grid>
+        {produtos.map((it, index) => <Produto key={index} produtoDTO={it} />)}
+      </Grid>
+
+      <div>
+      </div>
+    </div>
+  );
+};
+
+
+{/* <Grid>
         {produtos.map(produto => {
           <Produto key={produto} produtoDTO={it}/> })}
 
@@ -52,21 +66,9 @@ const Home = () => {
 
 
 
-      {/* <Button className="adicionar" variant="outlined" startIcon={<AddCircleIcon />}onClick={()=>{window.location.replace('/adicionarproduto')}}>
+{/* <Button className="adicionar" variant="outlined" startIcon={<AddCircleIcon />}onClick={()=>{window.location.replace('/adicionarproduto')}}>
             Adicionar Produto
             </Button> */}
-      <div>
-        <Grid>
-          {produtos.map((it, index) => <Produto key={index} produtoDTO={it} />)}
-        </Grid>
-
-
-      </div>
-    </div>
-  );
-};
-
-
 
 
 export default Home;

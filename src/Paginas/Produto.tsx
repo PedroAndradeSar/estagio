@@ -1,11 +1,29 @@
 import { ProdutoDTO } from 'dtos/produtosDTO';
 import React from 'react';
-// import './produto.css';
+
 import { Button, Grid } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { AxiosResponse } from 'axios';
+import { NodeAPI } from 'services/Services';
+
+
+async function deleteProduto(id_produto) {
+
+
+    try {
+        const putResponse: AxiosResponse = await NodeAPI.delete(
+            `${process.env.REACT_APP_API_URL}/produto/${id_produto}`
+        );
+
+        console.log(putResponse);
+    } catch (error) {
+
+        console.log(error);
+    }
+}
 
 
 type ProdutoProps = {
@@ -14,6 +32,8 @@ type ProdutoProps = {
 
 export default function Produto(props: ProdutoProps) {
     const { produtoDTO } = props
+
+
     return (
         <>
             <Grid style={{ margin: "10px solid red" }}>
@@ -32,14 +52,20 @@ export default function Produto(props: ProdutoProps) {
                     <div className="actions"><Button variant="outlined" onClick={() => { window.location.replace('/editar/' + produtoDTO.id_produto) }}>
                         Editar Produto
                     </Button>
-                        <IconButton aria-label="delete"></IconButton>
-                        <Button variant="outlined" onClick={() => { window.location.replace('/delete') }}><DeleteIcon />
-                        </Button>
+                        {/* <IconButton aria-label="delete"></IconButton>
+                        <Button variant="outlined" onClick={() => deleteProduto(produtos.id) }><DeleteIcon />
+                        </Button> */}
 
                         <IconButton aria-label="delete"></IconButton>
                         <Button variant="outlined" onClick={() => { window.location.replace('/carrinho') }}><AddShoppingCartIcon />
                         </Button>
 
+                    </div>
+                    <div className="actions"><Button variant="outlined" onClick={() => {
+                        deleteProduto(produtoDTO.id_produto)
+                    }}>
+                        deletar
+                    </Button>
                     </div>
 
 
@@ -48,3 +74,6 @@ export default function Produto(props: ProdutoProps) {
         </>
     )
 }
+
+
+
