@@ -1,4 +1,4 @@
-import { Button, Grid, IconButton } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { ProdutoDTO } from "dtos/produtosDTO";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <div>
-      <Grid style={{ border: "1px solid red" }}>
+      <Grid >
         <nav className="caminho">
           <Link to="/carrinho">Carrinho &gt; </Link>
           <Link to="/adicionarpt">Adicionar &gt; </Link>

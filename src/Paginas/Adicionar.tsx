@@ -1,9 +1,8 @@
-import { valueToPercent } from "@mui/base";
-import { Alert, Button, Input, Snackbar, TextField } from "@mui/material";
-import axios, { AxiosResponse } from "axios";
-import { UploadImage } from "componentes/UploadImage";
+
+import { Alert, Button, Snackbar, TextField } from "@mui/material";
+import { AxiosResponse } from "axios";
 import { ProdutoDTO } from "dtos/produtosDTO";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { NodeAPI } from "services/Services";
 import "../Paginas/Adicionar.css";
@@ -104,7 +103,7 @@ export function Adicionarpt() {
               variant="outlined" />
           </div>
           <div className="forms">
-            <TextField
+            <TextField className="forms"
               value={marca}
               onChange={(event) => setMarca(event.target.value)}
               label={'Marca do Produto'}
@@ -135,45 +134,56 @@ export function Adicionarpt() {
         </div>
       </div>
       <div>
-        <div style={{
-          width: '150px',
-          height: '150px',
+        <div>
+          <div className="inptuimg" style={{
+            width: '1350px',
+            height: '150px',
+            marginLeft: '261px'
 
-        }} >
-          <input ref={uploadFile}
-            style={{ display: 'none' }}
-            type="file"
-            onChange={handleFile}
-          />
-          <img style={
-            {
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover'
-            }
-          } src={`data:image/jpg;base64,${foto}`} alt="" />
-          <Button onClick={openFileExplorer} variant="outlined" />
-          abrir explorer
-        </div>
-        );
-      </div>
-      <div>
-        <div className="botton">
-          <Button
-            variant={'contained'}
-            onClick={() => criarProduto()}
-          >
-            <h3>
-              Adicionar Produto
-            </h3>
-          </Button>
+          }} >
+
+            <input ref={uploadFile}
+              style={{ display: 'none' }}
+              type="file"
+              onChange={handleFile}
+            />
+            <img style={
+              {
+                width: '150px',
+                height: '150px',
+                objectFit: 'none'
+              }
+            } src={`data:image/jpg;base64,${foto}`} alt="" />
+            <Button className="botaoimagem" onClick={openFileExplorer} variant="outlined" >
+
+              <svg width="77" height="76" viewBox="0 0 77 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60.6695 22.4902V31.8867C60.6695 31.8867 54.3453 31.9182 54.3136 31.8867V22.4902H44.7797C44.7797 22.4902 44.8114 16.2363 44.7797 16.2049H54.3136V6.77692H60.6695V16.2049H70.2034V22.4902H60.6695ZM51.1356 35.0608V25.6329H41.6017V16.2049H16.178C12.6822 16.2049 9.82204 19.0333 9.82204 22.4902V60.2021C9.82204 63.659 12.6822 66.4874 16.178 66.4874H54.3136C57.8093 66.4874 60.6695 63.659 60.6695 60.2021V35.0608H51.1356ZM16.178 60.2021L25.7119 47.6314L32.0678 57.0594L41.6017 44.4888L54.3136 60.2021H16.178Z" fill="#D9D9D9" />
+              </svg>
+
+            </Button>
+
+          </div>
+          );
         </div>
         <div>
-          {/* <footer className="footer">
+          <div className="botton">
+            <Button
+              variant={'contained'}
+              onClick={() => criarProduto()}
+            >
+              <h3>
+                Adicionar Produto
+              </h3>
+            </Button>
+          </div>
+          <div>
+            {/* <footer className="footer">
            <button className="botao"> <h1>Adicionar Produto</h1> </button>
             </footer> */}
+          </div>
         </div>
       </div>
+
       <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         open={isOpen}
         autoHideDuration={2000}

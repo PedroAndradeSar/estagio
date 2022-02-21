@@ -10,3 +10,38 @@
   margin-left: 261px;
   margin-top: 40px;
 }
+
+.alincontainer{
+  display: flex;
+  contain: content;
+  flex-direction: row;
+  display: flex;
+  
+
+}
+
+.dadospedido{
+  background-color: aqua;
+  margin-bottom: 100%;
+  margin-top: 5%;
+  margin-left:  15%;
+  margin-right: 0%;
+  border: 5px;
+  border-color: blueviolet;
+  width: 150px;
+  height: 150px;
+  
+
+}
+
+.imgproduto{
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border: 1px;
+ 
+ 
+}

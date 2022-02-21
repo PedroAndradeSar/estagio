@@ -168,3 +168,20 @@ header h1 {
   display: flex;
   margin-bottom: 7px;
 }
+
+.inptuimg{
+  flex-direction: row;
+  width: 150px;
+  height: 150px;
+  display: flex;
+
+  margin-left: 461px;
+}
+
+.botaoimagem{
+  margin-left: 100px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+
+}

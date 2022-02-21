@@ -1,110 +1,118 @@
-// import React, { useEffect, useRef, useState } from 'react';
-// import { Link, useNavigate } from 'react-router-dom';
-// import { NodeAPI } from 'services/Services';
-// import '../Paginas/Carrinho.css'
-// import { ProdutoDTO } from 'dtos/produtosDTO';
-// import { AxiosResponse } from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { NodeAPI } from 'services/Services';
+import '../Paginas/Carrinho.css'
+import { ProdutoDTO } from 'dtos/produtosDTO';
+import { AxiosResponse } from 'axios';
+import { TextField } from '@mui/material';
 
 
-export function Carrinho() { }
-//   const [nome, setNome] = useState<string>('');
-//   const [valor, setValor] = useState<number>(0);
-//   const [foto, setFoto] = useState<string>('');
-//   const [marca, setMarca] = useState<string>('');
-//   const [cor, setCor] = useState<string>('');
-//   const [isOpen, setIsOpen] = useState<boolean>(false);
-//   const [severity, setSeverety] = useState<'success' | 'info' | 'warning' | 'error'>('success');
-//   const navigate = useNavigate();
-//   const [feedbackMessage, setFeedbackMessage] = useState<string>('');
 
-//   async function closeSnackbar() {
-//     setIsOpen(false)
-//   }
-//   const uploadFile: any = useRef();
-//   // const [image, setImage] = useState<string>();//tipar como string a imagem
-
-//   function openFileExplorer() {
-//     uploadFile.current.click(); // comando usado para abrir o navegador
-//   }
-
-//   function handleFile(event: any) {
-//     parseFileToBase64(event.target.files[0])
-//   }
-
-//   try {
-//     const putResponse: AxiosResponse = await NodeAPI.get(
-//       `${process.env.REACT_APP_API_URL}/produto/${id_produto}`,
+async function getProduto(id_produto) {
 
 
-//     );
+  try {
+    const putResponse: AxiosResponse = await NodeAPI.get(
+      `${process.env.REACT_APP_API_URL}/produto/${id_produto}`
+    );
 
-//     setFeedbackMessage('Usuário cadastrado com sucesso');
-//     setSeverety('success');
-//     setIsOpen(true);
-//     navigate('/home')
-//     setNome('');
-//     setValor(0);
-//     setCor('');
-//     setFoto('');
-//     setMarca('');
-//     // if (nome === '') {//para nao criar campo vazio
-//     //   alert("nomevazil")
-//     // }
-//     console.log(putResponse);
-//   } catch (error) {
-//     setFeedbackMessage('Usuário cadastrado não foi cadastrado');
-//     setSeverety('error');
-//     setIsOpen(true);
-//     console.log(error);
-//   }
+    console.log(putResponse);
+  } catch (error) {
 
+    console.log(error);
+  }
+}
 
-//   useEffect(() => {
-//     const getProduto = async () => {
+type ProdutoProps = {
+  produtoDTO: ProdutoDTO;
+}
 
-//       try {
-//         const getResponse = await NodeAPI.get(
-//           `${process.env.REACT_APP_API_URL}/produto/${id_produto}`
-//         );
-//         console.log(getResponse)
-//         setNome(getResponse.data.nome);
-//         setValor(getResponse.data.valor);
-//         setCor(getResponse.data.cor);
-//         setFoto(getResponse.data.foto);
-//         setMarca(getResponse.data.marca);
+export function Carrinho() {
 
-//       } catch (error) {
+  const [nome, setNome] = useState<string>('');
+  const [valor, setValor] = useState<number>(0);
+  const [foto, setFoto] = useState<string>('');
+  const [marca, setMarca] = useState<string>('');
+  const [cor, setCor] = useState<string>('');
+  const { id_produto } = useParams();
 
-//       }
-//     }
-//     getProduto()
-//   }, [])
+  async function editarProduto() {
+    const produtoDTO = new ProdutoDTO(
+      nome,
+      valor,
+      foto,
+      cor,
+      marca,
+      Number(id_produto))
+  }
 
 
 
 
-//   return (
-//     <div>
-//       <header>
-//         <nav className='caminho'>
-//           <Link to="/home">Home &gt; {" "}</Link>
-//           <Link to="/adicionarpt">Adicionar &gt; {" "}</Link>
-//           <Link to="/editar">Editar &gt; {" "}</Link>
-//         </nav>
-//         <h1>
-//           Carrinho
-//         </h1>
-//       </header>
-//       <div>
+  useEffect(() => {
+    const getProduto = async () => {
+
+      try {
+        const getResponse = await NodeAPI.get(
+          `${process.env.REACT_APP_API_URL}/produto/${id_produto}`
+        );
+        console.log(getResponse)
+        setNome(getResponse.data.nome);
+        setValor(getResponse.data.valor);
+        setCor(getResponse.data.cor);
+        setFoto(getResponse.data.foto);
+        setMarca(getResponse.data.marca);
+
+      } catch (error) {
+
+      }
+    }
+    getProduto()
+  }, [])
 
 
-//       </div>
 
-//     </div>
-//   )
 
-// }
 
-// function parseFileToBase64(arg0: any) {
-//   throw new Error('Function not implemented.');
-// }
+  return (
+    <div>
+      <header>
+        <nav className='caminho'>
+          <Link to="/home">Home &gt; {" "}</Link>
+          <Link to="/adicionarpt">Adicionar &gt; {" "}</Link>
+          <Link to="/editar">Editar &gt; {" "}</Link>
+        </nav>
+        <h1>
+          Carrinho
+        </h1>
+      </header>
+      <div className='alincontainer'>
+        <div>
+          <div className='dadospedido'>
+            <div><span>{nome}</span></div>
+            <div><span>{cor}</span></div>
+            <div> <span>{marca}</span></div>
+            <div><span>{valor}</span></div>
+            <div className='imgproduto'>
+              <div className="img">
+                <img src={`data:image/jpg;base64,${foto}`} alt="" />
+              </div>
+              <div className='alincontainer'>
+                <div>
+                  <div className='pedidofinalized'>
+                    <div><span>{nome}</span></div>
+                    <div><span>{cor}</span></div>
+                    <div> <span>{marca}</span></div>
+                    <div><span>{valor}</span></div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div >
+  )
+}
