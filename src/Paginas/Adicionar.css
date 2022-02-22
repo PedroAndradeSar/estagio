@@ -104,6 +104,7 @@ header h1 {
 }
 
 .formulario-border {
+  font-family: Raleway;
   width: 316.5px;
   height: 62.5px;
   margin-left: 261px;
@@ -115,12 +116,6 @@ header h1 {
 }
 
 
-.formsadd{
-  background-color: red;
-  height: 500px;
-  display: flex;
-  justify-content: center ;
-}
 
 .forms {
   background-color: white;

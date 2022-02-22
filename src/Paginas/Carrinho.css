@@ -11,37 +11,113 @@
   margin-top: 40px;
 }
 
-.alincontainer{
+.fatherstyle {
+  font-family: Raleway;
+  font-style: normal;
+  font-size: 20px;
   display: flex;
-  contain: content;
   flex-direction: row;
+}
+
+.infosleftstyle {
   display: flex;
-  
+  flex-direction: column;
+  width: 922px;
+  height: 360px;
+  border-radius: 10px;
+  border: #b2b2b2;
+  margin-left: 261px;
+}
+
+.infostyle {
+  display: flex;
+  flex-direction: column;
+}
+
+.infostyledown {
+  border: #b2b2b2;
+}
+
+.inforigthstyle {
+  display: flex;
+  flex-direction: column;
+  width: 425px;
+  height: 360px;
+  border-radius: 10px;
+  margin-left: 54px;
+  font-family: Raleway;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.classname {
+  margin-left: 5%;
+  /* largura */
+  width: 700px;
+  /* altura */
+  height: 28px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  font-feature-settings: "pnum" on, "lnum" on;
+}
+.classcor {
+  margin-left: 5%;
+  margin-top: 5px;
+}
+.classmarca {
+  margin-left: 5%;
+  margin-top: 10px;
+}
+
+.division {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  width: 859px;
+  height: 0px;
+  margin-left: 23px;
+  top: 475px;
+  border: 1px solid #d9d9d9;
+}
+
+.infostyledown {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.totalcash {
+  margin-left: 150px;
+  width: 124px;
+  height: 28px;
+}
+
+.divisionrigth{
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  width: 377.5px;
+  height: 0px;
+  margin-left: 23px;
+  top: 475px;
+  border: 1px solid #d9d9d9;
+  align-items: center;
 
 }
 
-.dadospedido{
-  background-color: aqua;
-  margin-bottom: 100%;
-  margin-top: 5%;
-  margin-left:  15%;
-  margin-right: 0%;
-  border: 5px;
-  border-color: blueviolet;
-  width: 150px;
-  height: 150px;
-  
+.subtotal{
+width: 173px;
+height: 26px;
+margin-left: 1263px;
+top: 298px;
+font-family: Raleway;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 26px;
+/* identical to box height */
 
-}
-
-.imgproduto{
-  margin-bottom: 15px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  width: 150px;
-  height: 150px;
-  border: 1px;
- 
- 
 }

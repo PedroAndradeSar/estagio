@@ -66,7 +66,7 @@ export function Adicionarpt() {
       setFeedbackMessage('Usuário cadastrado com sucesso');
       setSeverety('success');
       setIsOpen(true);
-      navigate('/home');
+      window.location.replace('/home');
       setNome('');
       setValor(0);
       setCor('');
@@ -147,13 +147,18 @@ export function Adicionarpt() {
               type="file"
               onChange={handleFile}
             />
-            <img style={
-              {
-                width: '150px',
-                height: '150px',
-                objectFit: 'none'
-              }
-            } src={`data:image/jpg;base64,${foto}`} alt="" />
+
+            {foto && (
+              <img style={
+                {
+                  width: '150px',
+                  height: '150px',
+                  objectFit: 'none'
+                }
+              } src={`data:image/jpg;base64,${foto}`} alt="" />
+            )}
+
+
             <Button className="botaoimagem" onClick={openFileExplorer} variant="outlined" >
 
               <svg width="77" height="76" viewBox="0 0 77 76" fill="none" xmlns="http://www.w3.org/2000/svg">

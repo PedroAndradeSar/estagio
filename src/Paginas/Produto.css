@@ -1,0 +1,78 @@
+.img {
+    width: 200px;
+    height: 200px;
+    justify-self: center;
+    left: 60px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    }
+    
+    .img img{
+        height: 150px;
+        width: 150px;
+        z-index:0;
+        object-fit: contain;
+        justify-self: left;
+        margin-left: 0px;
+    }
+    
+    .containerproduto{
+        display:flex;
+        flex-direction: row;
+        margin-top: 60px;
+    
+    }
+    
+    .campos{
+        justify-content: start;
+        display: flex;
+        flex-direction: column;
+        flex:auto;
+        left: 448px;
+        justify-content: left;
+        text-align: left;
+        margin-left: 180px;
+    
+    }
+    .campos .valor {
+        font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 100%;
+  
+    
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    
+    /* Blue 2 */
+    
+    color: #0F4C81;
+    }
+    .campos .camera {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    
+    /* Cinza */
+    
+    color: #353535;
+    }
+    .icons
+    {
+        display: flex;
+        align-items: center;
+    }
+    
+    
+    .camera {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    }

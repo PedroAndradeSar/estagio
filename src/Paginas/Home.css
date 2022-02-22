@@ -10,3 +10,11 @@ header h1 {
     font-size: 40px;
     line-height: 47px;
   }
+
+.lista {
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ padding: 100px;
+ margin-left: 100px;
+}

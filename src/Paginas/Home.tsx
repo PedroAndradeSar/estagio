@@ -48,7 +48,11 @@ const Home = () => {
       </Grid>
 
       <Grid>
-        {produtos.map((it, index) => <Produto key={index} produtoDTO={it} />)}
+        <div className="lista" style={{ border: "1px solid red" }}>
+
+          {produtos.map((it, index) => <Produto key={index} produtoDTO={it} />)}
+        </div>
+
       </Grid>
 
       <div>
