@@ -78,8 +78,9 @@ export function Carrinho() {
     return (total = valor * cont)
   }
 
-  const frete = (Number(valor) / 10)
-
+  function pagartotal() {
+    return ((somavalor() / 10) + somavalor())
+  }
 
   return (
     <>
@@ -130,7 +131,6 @@ export function Carrinho() {
             <Button onClick={() => {
               if (cont > 1)
                 setCont(cont - 1)
-
             }}><svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9 18.5V15.5H23V18.5H9Z" fill="#353535" />
                 <circle cx="16" cy="16.5" r="15.5" stroke="#353535" />
@@ -168,14 +168,14 @@ export function Carrinho() {
           <Divider className='divisionrigth'></Divider>
           <div className='element'>
             <Typography >Frete</Typography>
-            <Typography>R$: {frete},00</Typography>
+            <Typography>R$: {somavalor() / 10},00</Typography>
           </div>
           <div className='divisionrigthtwo'>
             <Divider></Divider>
           </div>
           <div className='element'>
             <Typography>Valor Total</Typography>
-            <Typography>R$: {valor},00</Typography>
+            <Typography>R$: {pagartotal()},00</Typography>
           </div>
 
 
