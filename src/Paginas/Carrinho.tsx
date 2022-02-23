@@ -11,6 +11,8 @@ import { Button, Divider, TextField, Typography } from '@mui/material';
 async function getProduto(id_produto) {
 
 
+
+
   try {
     const putResponse: AxiosResponse = await NodeAPI.get(
       `${process.env.REACT_APP_API_URL}/produto/${id_produto}`
@@ -73,6 +75,11 @@ export function Carrinho() {
     getProduto()
   }, [])
 
+  let total = 0;
+  function somavalor() {
+    return (total = valor * cont)
+  }
+
 
   return (
     <>
@@ -84,10 +91,10 @@ export function Carrinho() {
         </nav>
         <div className='names'>
           <h1>
-            Carrinho
+            <span>Carrinho</span>
           </h1>
           <h1>
-            Resumo do Pedido
+            <span>Resumo do Pedido</span>
           </h1>
         </div>
 
@@ -96,14 +103,13 @@ export function Carrinho() {
 
       <div className='fatherstyle' style={{
         border: "1px solid black"
-
       }} >
 
         {/* conteudo a esquedar */}
         <div className='infosleftstyle' style={{ border: "1px solid red" }}>
           {/* parte de cima     */}
 
-          <div className='  '>
+          <div>
             <div className="img">
               <img src={`data:image/jpg;base64,${foto}`} alt="" />
 
@@ -135,7 +141,8 @@ export function Carrinho() {
               </TextField>
             </div>
             <Button onClick={() => {
-              setCont(cont + 1);
+              setCont(cont + 1)
+              console.log(setCont)
             }}>
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17 17.5V23.5H15V17.5H9V15.5H15V9.5H17V15.5H23V17.5H17Z" fill="#353535" />
@@ -153,7 +160,7 @@ export function Carrinho() {
         <div className='inforigthstyle' style={{ border: "1px solid green" }}>
           <div className='element' style={{ border: "1px solid red", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
             <Typography>Subtotal</Typography>
-            <Typography >R$: {valor},00</Typography>
+            <Typography >R$: {somavalor()}</Typography>
           </div>
           <div className='divisionrigthone'>
             <Divider></Divider>
