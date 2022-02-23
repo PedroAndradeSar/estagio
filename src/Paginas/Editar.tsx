@@ -172,6 +172,7 @@ export function Editar() {
             <input ref={uploadFile}
               style={{ display: 'none' }}
               type="file"
+              accept="image/*"
               onChange={handleFile}
             />
             <img style={

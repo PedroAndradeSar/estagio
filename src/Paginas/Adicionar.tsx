@@ -145,6 +145,7 @@ export function Adicionarpt() {
             <input ref={uploadFile}
               style={{ display: 'none' }}
               type="file"
+              accept="image/*"
               onChange={handleFile}
             />
 

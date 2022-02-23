@@ -180,7 +180,11 @@ export function Carrinho() {
 
 
           <div className='pagamento'>
-            <Button>Pagar</Button>
+            <Button onClick={() => {
+
+            }}>
+              <span>Pagar</span>
+            </Button>
           </div>
 
 
