@@ -52,8 +52,6 @@ export function Carrinho() {
   }
 
 
-
-
   useEffect(() => {
     const getProduto = async () => {
 
@@ -79,6 +77,8 @@ export function Carrinho() {
   function somavalor() {
     return (total = valor * cont)
   }
+
+  const frete = (Number(valor) / 10)
 
 
   return (
@@ -160,7 +160,7 @@ export function Carrinho() {
         <div className='inforigthstyle' style={{ border: "1px solid green" }}>
           <div className='element' style={{ border: "1px solid red", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
             <Typography>Subtotal</Typography>
-            <Typography >R$: {somavalor()}</Typography>
+            <Typography >R$: {somavalor()},00</Typography>
           </div>
           <div className='divisionrigthone'>
             <Divider></Divider>
@@ -168,7 +168,7 @@ export function Carrinho() {
           <Divider className='divisionrigth'></Divider>
           <div className='element'>
             <Typography >Frete</Typography>
-            <Typography>R$: {valor},00</Typography>
+            <Typography>R$: {frete},00</Typography>
           </div>
           <div className='divisionrigthtwo'>
             <Divider></Divider>
