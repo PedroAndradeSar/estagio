@@ -35,6 +35,9 @@ export function Carrinho() {
   const [marca, setMarca] = useState<string>('');
   const [cor, setCor] = useState<string>('');
   const { id_produto } = useParams();
+  const [cont, setCont] = useState<number>(1);
+
+
 
   async function getProduto() {
     const produtoDTO = new ProdutoDTO(
@@ -79,10 +82,17 @@ export function Carrinho() {
           <Link to="/adicionarpt">Adicionar &gt; {" "}</Link>
           <Link to="/editar">Editar &gt; {" "}</Link>
         </nav>
-        <h1>
-          Carrinho
-        </h1>
+        <div className='names'>
+          <h1>
+            Carrinho
+          </h1>
+          <h1>
+            Resumo do Pedido
+          </h1>
+        </div>
+
       </header>
+
 
       <div className='fatherstyle' style={{
         border: "1px solid black"
@@ -92,6 +102,7 @@ export function Carrinho() {
         {/* conteudo a esquedar */}
         <div className='infosleftstyle' style={{ border: "1px solid red" }}>
           {/* parte de cima     */}
+
           <div className='  '>
             <div className="img">
               <img src={`data:image/jpg;base64,${foto}`} alt="" />
@@ -109,41 +120,62 @@ export function Carrinho() {
 
           {/* parte de baixo */}
           <div className='infostyledown'>
-            Quantidade:
-            <Button><svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 18.5V15.5H23V18.5H9Z" fill="#353535" />
-              <circle cx="16" cy="16.5" r="15.5" stroke="#353535" />
-            </svg>
+            <span>Quantidade:</span>
+            <Button onClick={() => {
+              if (cont > 1)
+                setCont(cont - 1)
+
+            }}><svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18.5V15.5H23V18.5H9Z" fill="#353535" />
+                <circle cx="16" cy="16.5" r="15.5" stroke="#353535" />
+              </svg>
             </Button>
-            <div><svg width="46" height="47" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M26.488 27.564V29.5H20.056V27.564H22.264V20.172C22.1467 20.332 21.9387 20.524 21.64 20.748C21.3413 20.9613 21.0107 21.148 20.648 21.308C20.296 21.468 19.976 21.548 19.688 21.548V19.564C19.9653 19.564 20.2533 19.4893 20.552 19.34C20.8507 19.1907 21.128 19.02 21.384 18.828C21.64 18.6253 21.848 18.4493 22.008 18.3C22.1787 18.14 22.264 18.0493 22.264 18.028H24.456V27.564H26.488Z" fill="#353535" />
-              <rect x="0.5" y=" " width="45" height="45" rx="6.5" stroke="#353535" />
-            </svg>
+            <div style={{ border: "1px solid red" }}>
+              <TextField value={cont}>
+              </TextField>
             </div>
-            <Button><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17 17.5V23.5H15V17.5H9V15.5H15V9.5H17V15.5H23V17.5H17Z" fill="#353535" />
-              <circle cx="16" cy="16" r="15.5" stroke="#353535" />
-            </svg>
+            <Button onClick={() => {
+              setCont(cont + 1);
+            }}>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 17.5V23.5H15V17.5H9V15.5H15V9.5H17V15.5H23V17.5H17Z" fill="#353535" />
+                <circle cx="16" cy="16" r="15.5" stroke="#353535" />
+              </svg>
             </Button>
             <div className='totalcash'>
 
-              <span className='cash'>R$:{valor},00</span>
+              <span className='cash'>R$: {valor},00</span>
             </div>
           </div>
         </div>
 
         {/* conteudo a direita */}
         <div className='inforigthstyle' style={{ border: "1px solid green" }}>
-          <Typography className='subtotal'>Subtotal  R$:{valor},00</Typography>
+          <div className='element' style={{ border: "1px solid red", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+            <Typography>Subtotal</Typography>
+            <Typography >R$: {valor},00</Typography>
+          </div>
+          <div className='divisionrigthone'>
+            <Divider></Divider>
+          </div>
           <Divider className='divisionrigth'></Divider>
+          <div className='element'>
+            <Typography >Frete</Typography>
+            <Typography>R$: {valor},00</Typography>
+          </div>
+          <div className='divisionrigthtwo'>
+            <Divider></Divider>
+          </div>
+          <div className='element'>
+            <Typography>Valor Total</Typography>
+            <Typography>R$: {valor},00</Typography>
+          </div>
 
-          <Typography>Frete</Typography>
-          <Divider className='divisionrigth'></Divider>
 
-          <Typography>Valor Total</Typography>
-          <Divider className='divisionrigth'></Divider>
+          <div className='pagamento'>
+            <Button>Pagar</Button>
+          </div>
 
-          <Button>Pagar</Button>
 
         </div>
 

@@ -48,6 +48,7 @@
   font-family: Raleway;
   font-style: normal;
   font-size: 20px;
+  background-color: #C4C4C4;
 }
 
 .classname {
@@ -96,7 +97,7 @@
   height: 28px;
 }
 
-.divisionrigth{
+.divisionrigthone{
   margin-block-start: 0px;
   margin-block-end: 0px;
   width: 377.5px;
@@ -104,20 +105,61 @@
   margin-left: 23px;
   top: 475px;
   border: 1px solid #d9d9d9;
-  align-items: center;
+  margin-top: 50px;
+  display: flex;
 
 }
 
-.subtotal{
-width: 173px;
-height: 26px;
-margin-left: 1263px;
-top: 298px;
-font-family: Raleway;
-font-style: normal;
-font-weight: bold;
-font-size: 22px;
-line-height: 26px;
-/* identical to box height */
+.divisionrigthtwo{
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  width: 377.5px;
+  height: 0px;
+  margin-left: 23px;
+  top: 475px;
+  border: 1px solid #d9d9d9;
+  margin-top: 50px;
+  display: flex;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
 
+}
+
+.element{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border:1px solid red;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px; 
+  margin-top: 25px ;
+}
+
+.pagamento{
+  display: flex;
+  align-items: center;
+  border:1px solid red;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto; 
+  margin-top: 25px;
+}
+
+.names{
+  display: flex ;
+  justify-content: space-between;
+  align-items: center;
+  border:1px solid red;
+  margin-right:261px ;
+  width: auto;
+  
 }
