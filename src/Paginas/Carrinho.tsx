@@ -104,8 +104,8 @@ export function Carrinho() {
       <header>
         <nav className='caminho' style={{ border: "1px solid black" }}>
           <Link to="/home">Home &gt; {" "}</Link>
-          <Link to="/adicionarpt">Adicionar &gt; {" "}</Link>
-          <Link to="/editar">Editar &gt; {" "}</Link>
+          <Link to="/carrinho/' + produtoDTO.id_produto">Carrinho &gt; </Link>
+
         </nav>
         <div className='names'>
           <h1>
