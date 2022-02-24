@@ -87,8 +87,7 @@ export function Adicionarpt() {
         <header>
           <nav className="caminho">
             <Link to="/home">Home &gt; </Link>
-            <Link to="/carrinho">Carrinho &gt; </Link>
-            <Link to="/editar">Editar &gt; </Link>
+            <Link to="/adicionarpt">Adicionar Produto </Link>
           </nav>
           <h1>Adicionar Produto</h1>
         </header>
@@ -182,6 +181,7 @@ export function Adicionarpt() {
               </h3>
             </Button>
           </div>
+
         </div>
       </div>
 
