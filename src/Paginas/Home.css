@@ -3,7 +3,8 @@ header h1 {
     width: 345px;
     height: 47px;
     margin-left: 261px;
-    top: 177px;
+    margin-right: 261px;
+    top: 197px;
     font-family: Raleway;
     font-style: normal;
     font-weight: bold;
@@ -13,8 +14,32 @@ header h1 {
 
 .lista {
  display: flex;
- align-items: center;
+ align-items: unset;
  flex-direction: column;
+ justify-content: space-between;
  padding: 100px;
  margin-left: 100px;
+ 
+}
+
+.topo{
+  
+  display: flex;
+  align-items: unset;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.botton{
+width: 291px;
+height: 64px;
+margin-right: 261px;
+margin-top: 20px;
+
+font-family: Raleway;
+border-radius: 12px;
+
+}
+.pginicial{
+  margin-left: 261px; 
+  font-family: Raleway;
 }

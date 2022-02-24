@@ -134,7 +134,7 @@ export function Carrinho() {
 
               <div className='infostyle'>
                 <span className='classname'>{nome}</span>
-                <span className='classcor'>{cor}</span>
+                <span className='classcor'>Cor: {cor}</span>
                 <span className='classmarca'>{marca}</span>
               </div>
             </div>
@@ -154,7 +154,7 @@ export function Carrinho() {
               </svg>
             </Button>
             <div style={{ border: "1px solid red" }}>
-              <TextField value={cont}>
+              <TextField className='contador' value={cont}>
               </TextField>
             </div>
             <Button onClick={() => {
@@ -168,7 +168,7 @@ export function Carrinho() {
             </Button>
             <div className='totalcash'>
 
-              <span className='cash'>R$: {valor},00</span>
+              <span className='cash'>R$:{valor},00</span>
             </div>
           </div>
         </div>
