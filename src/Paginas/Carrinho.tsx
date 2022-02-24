@@ -86,18 +86,29 @@ export function Carrinho() {
     return ((somavalor() / 10) + somavalor())
   }
 
-  // const imput = require('pagartotal')
-  // //pagamento campo verdeW
-  // let pagamento = parseInt(imput);
 
-  // const notas = [200, 100, 50, 20, 10, 5, 2, 1];
+  //pagamento campo verdeW
 
-  // console.log(pagamento);
-  // for (let nota of notas) {
-  //   let qtdNotas = parseInt(pagartotal / nota);
-  //   console.log(`${qtdNotas} notas(s) de R$ ${nota},00`);
-  //   pagamento = pagamento % nota
-  // }
+  let notas = pagartotal(); // Informe o valor aqui
+  let cedulas = [100, 50, 20, 10, 5, 2, 1]; // as notas
+
+  // Função responsável por contar as notas a partir de um valor.
+  function contaNotas(valor: number) {
+
+    let quantidadeNotas = parseInt((notas / valor).toString());
+    // TODO Subtraia de "n" a "quantidadeNotas" multiplicada por seu respectivo "valor" (parâmetro).
+    notas -= quantidadeNotas * valor;
+
+    console.log(`${quantidadeNotas} nota(s) de R$ ${valor},00`);
+  }
+
+  for (let cedula in cedulas) {
+    contaNotas(cedulas[cedula]);
+    console.log(contaNotas)
+  }
+
+
+
 
   return (
     <>
@@ -215,19 +226,10 @@ export function Carrinho() {
             Pagamento realizado com Sucesso!
           </h3>
         </Typography>
-        <p />
-        <Typography className='campoNotas'>
-          teste2
+        <Typography>
+          console.log({contaNotas})
         </Typography>
-        <p />
-        <Typography className='campoNotas'>
-          teste3
-        </Typography>
-        <p />
-        <Typography className='campoNotas'>
-          teste4
-        </Typography>
-        <p ></p>
+
       </Grid>
     </ >
   )
