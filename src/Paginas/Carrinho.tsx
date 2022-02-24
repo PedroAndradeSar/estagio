@@ -39,7 +39,7 @@ export function Carrinho() {
   const { id_produto } = useParams();
   const [cont, setCont] = useState<number>(1);
   // const [notas, setNotas] = useState<number>();
-  const [pagamento, setPegamento] = useState<string>('')
+  const [pagamento, setPegamento] = useState<object>({})
   const [mostrarPagamento, setMostrarPagamento] = useState<boolean>(false);
 
 
@@ -87,28 +87,20 @@ export function Carrinho() {
   }
 
 
-  //pagamento campo verdeW
+  function finallyPayments() {
+    let total = pagartotal(); // Informe o valor aqui
+    let cedulas = [100, 50, 20, 10, 5, 2, 1]; // as notas
+    const notas = new Object()
 
-  let notas = pagartotal(); // Informe o valor aqui
-  let cedulas = [100, 50, 20, 10, 5, 2, 1]; // as notas
-
-  // Função responsável por contar as notas a partir de um valor.
-  function contaNotas(valor: number) {
-
-    let quantidadeNotas = parseInt((notas / valor).toString());
-    // TODO Subtraia de "n" a "quantidadeNotas" multiplicada por seu respectivo "valor" (parâmetro).
-    notas -= quantidadeNotas * valor;
-
-    console.log(`${quantidadeNotas} nota(s) de R$ ${valor},00`);
+    for (let index in cedulas) {
+      let quantidadeNotas = Math.floor(total / Number(cedulas[index]));
+      total -= quantidadeNotas * cedulas[index]
+      notas[cedulas[index]] = quantidadeNotas
+    }
+    setPegamento(notas)
+    console.log(notas)
+    setMostrarPagamento(true)
   }
-
-  for (let cedula in cedulas) {
-    contaNotas(cedulas[cedula]);
-    console.log(contaNotas)
-  }
-
-
-
 
 
 
@@ -210,7 +202,7 @@ export function Carrinho() {
 
           <div className='pagamento'>
             <Button onClick={() => {
-              setMostrarPagamento(true)
+              finallyPayments()
             }}>
               <span>Pagar</span>
             </Button>
@@ -228,7 +220,7 @@ export function Carrinho() {
           </h3>
         </Typography>
         <Typography>
-          {pagamento && ({ contaNotas })})
+          {mostrarPagamento && Object.entries(pagamento).map(it => { if (it[1] > 0) return <p>{`Usado ${it[1]} de ${it[0]}`}</p> })}
         </Typography>
 
       </Grid>

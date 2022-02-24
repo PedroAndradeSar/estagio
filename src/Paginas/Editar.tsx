@@ -114,8 +114,8 @@ export function Editar() {
         <header>
           <nav className="caminho">
             <Link to="/home">Home &gt; </Link>
-            <Link to="/carrinho">Carrinho &gt; </Link>
-            <Link to="/editar">Editar &gt; </Link>
+
+            <Link to="/editar/:id_produtor">Editar Produto &gt; </Link>
           </nav>
           <h1>Editar Produto</h1>
         </header>
@@ -154,7 +154,7 @@ export function Editar() {
             <TextField className="date"
               type={"date"}
               onChange={(event) => console.log(event.target.value)}
-              // label={'Data'}
+              label={'Data'}
 
               variant="outlined" />
           </div>

@@ -1,4 +1,3 @@
-
 import { Alert, Button, Snackbar, TextField } from "@mui/material";
 import { AxiosResponse } from "axios";
 import { ProdutoDTO } from "dtos/produtosDTO";
@@ -132,7 +131,7 @@ export function Adicionarpt() {
               sx={{
                 '& .MuiOutlinedInput-root fieldset': {
                   borderColor:
-                    messageNameHasError.length > 0 ? 'red' : 'grey',
+                    messageNameHasError.length > 0 ? 'red' : 'green',
                 },
               }}
               style={{
@@ -236,7 +235,6 @@ export function Adicionarpt() {
               </h3>
             </Button>
           </div>
-
         </div>
       </div>
 
