@@ -4,7 +4,7 @@ import { NodeAPI } from 'services/Services';
 import '../Paginas/Carrinho.css'
 import { ProdutoDTO } from 'dtos/produtosDTO';
 import { AxiosResponse } from 'axios';
-import { Button, Divider, TextField, Typography } from '@mui/material';
+import { Button, Divider, Grid, TextField, Typography } from '@mui/material';
 
 
 
@@ -38,6 +38,10 @@ export function Carrinho() {
   const [cor, setCor] = useState<string>('');
   const { id_produto } = useParams();
   const [cont, setCont] = useState<number>(1);
+  // const [notas, setNotas] = useState<number>();
+  // const [pagamento, setPegameneto] = useState<string>('')
+  const [mostrarPagamento, setMostrarPagamento] = useState<boolean>(false);
+
 
 
 
@@ -81,6 +85,19 @@ export function Carrinho() {
   function pagartotal() {
     return ((somavalor() / 10) + somavalor())
   }
+
+  // const imput = require('pagartotal')
+  // //pagamento campo verdeW
+  // let pagamento = parseInt(imput);
+
+  // const notas = [200, 100, 50, 20, 10, 5, 2, 1];
+
+  // console.log(pagamento);
+  // for (let nota of notas) {
+  //   let qtdNotas = parseInt(pagartotal / nota);
+  //   console.log(`${qtdNotas} notas(s) de R$ ${nota},00`);
+  //   pagamento = pagamento % nota
+  // }
 
   return (
     <>
@@ -181,7 +198,7 @@ export function Carrinho() {
 
           <div className='pagamento'>
             <Button onClick={() => {
-
+              setMostrarPagamento(true)
             }}>
               <span>Pagar</span>
             </Button>
@@ -190,7 +207,28 @@ export function Carrinho() {
 
         </div>
 
+
       </div>
+      <Grid className='campNotas' visibility={mostrarPagamento == true ? 'visible' : 'hidden'} >
+        <Typography className='campoNotas'>
+          <h3>
+            Pagamento realizado com Sucesso!
+          </h3>
+        </Typography>
+        <p />
+        <Typography className='campoNotas'>
+          teste2
+        </Typography>
+        <p />
+        <Typography className='campoNotas'>
+          teste3
+        </Typography>
+        <p />
+        <Typography className='campoNotas'>
+          teste4
+        </Typography>
+        <p ></p>
+      </Grid>
     </ >
   )
 }

@@ -182,11 +182,6 @@ export function Adicionarpt() {
               </h3>
             </Button>
           </div>
-          <div>
-            {/* <footer className="footer">
-           <button className="botao"> <h1>Adicionar Produto</h1> </button>
-            </footer> */}
-          </div>
         </div>
       </div>
 
