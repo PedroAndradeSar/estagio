@@ -39,7 +39,7 @@ export function Carrinho() {
   const { id_produto } = useParams();
   const [cont, setCont] = useState<number>(1);
   // const [notas, setNotas] = useState<number>();
-  // const [pagamento, setPegameneto] = useState<string>('')
+  const [pagamento, setPegamento] = useState<string>('')
   const [mostrarPagamento, setMostrarPagamento] = useState<boolean>(false);
 
 
@@ -110,10 +110,13 @@ export function Carrinho() {
 
 
 
+
+
+
   return (
     <>
       <header>
-        <nav className='caminho' style={{ border: "1px solid black" }}>
+        <nav className='caminho' >
           <Link to="/home">Home &gt; {" "}</Link>
           <Link to="/carrinho/' + produtoDTO.id_produto">Carrinho &gt; </Link>
 
@@ -130,12 +133,10 @@ export function Carrinho() {
       </header>
 
 
-      <div className='fatherstyle' style={{
-        border: "1px solid black"
-      }} >
+      <div className='fatherstyle'>
 
         {/* conteudo a esquedar */}
-        <div className='infosleftstyle' style={{ border: "1px solid red" }}>
+        <div className='infosleftstyle' style={{ border: "1px solid cinza" }}>
           {/* parte de cima     */}
 
           <div>
@@ -164,7 +165,7 @@ export function Carrinho() {
                 <circle cx="16" cy="16.5" r="15.5" stroke="#353535" />
               </svg>
             </Button>
-            <div style={{ border: "1px solid red" }}>
+            <div >
               <TextField className='contador' value={cont}>
               </TextField>
             </div>
@@ -185,7 +186,7 @@ export function Carrinho() {
         </div>
 
         {/* conteudo a direita */}
-        <div className='inforigthstyle' style={{ border: "1px solid green" }}>
+        <div className='inforigthstyle'>
           <div className='element' style={{ border: "1px solid red", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
             <Typography>Subtotal</Typography>
             <Typography >R$: {somavalor()},00</Typography>
@@ -227,7 +228,7 @@ export function Carrinho() {
           </h3>
         </Typography>
         <Typography>
-          console.log({contaNotas})
+          {pagamento && ({ contaNotas })})
         </Typography>
 
       </Grid>
