@@ -18,6 +18,30 @@ export function Editar() {
   const { id_produto } = useParams();
   const navigate = useNavigate();
   const [feedbackMessage, setFeedbackMessage] = useState<string>('');
+  const [messageNomeHasError, setMessageNomeHasError] = useState<string>('');
+  const [messageMarcaHasError, setMessageMarcaHasError] = useState<string>('');
+
+  useEffect(() => {
+    setMessageNomeHasError('');
+  }, [nome]);
+
+  useEffect(() => {
+    setMessageMarcaHasError('');
+  }, [valor]);
+
+  function validateUserInputs(): boolean {
+    let isValid = true;
+    if (nome.length < 4 || !nome.includes(' ')) {
+      setMessageNomeHasError('Nome digitado está no formato inválido');
+      isValid = false;
+    }
+
+    if (marca.length < 4 || !marca.includes(' ')) {
+      setMessageMarcaHasError('Marca digitado está no formato inválido');
+      isValid = false;
+    }
+    return isValid;
+  }
 
   async function closeSnackbar() {
     setIsOpen(false)
@@ -127,14 +151,63 @@ export function Editar() {
               value={nome}
               onChange={(event) => setNome(event.target.value)}
               label={'Nome do Produto'}
-              variant="outlined" />
+              variant="outlined"
+              sx={{
+                '& .MuiOutlinedInput-root fieldset': {
+                  borderColor:
+                    messageNomeHasError.length > 0 ? 'red' : 'gray',
+                },
+              }}
+              style={{
+                width: '100%',
+                backgroundColor: 'white',
+              }}
+
+            />
+            <div
+              style={{
+                marginTop: '15px',
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <p>
+                {messageNomeHasError.length > 0 ? messageNomeHasError : ''}
+              </p>
+            </div>
           </div>
           <div className="forms">
             <TextField
               value={marca}
               onChange={(event) => setMarca(event.target.value)}
               label={'Marca do Produto'}
-              variant="outlined" />
+              variant="outlined"
+              sx={{
+                '& .MuiOutlinedInput-root fieldset': {
+                  borderColor:
+                    messageMarcaHasError.length > 0 ? 'red' : 'gray',
+                },
+              }}
+              style={{
+                width: '100%',
+                backgroundColor: 'white',
+              }}
+
+            />
+            <div
+              style={{
+                marginTop: '15px',
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <p>
+                {messageMarcaHasError.length > 0 ? messageMarcaHasError : ''}
+              </p>
+            </div>
+
           </div>
           <div className="cash">
             <TextField
