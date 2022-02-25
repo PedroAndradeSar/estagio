@@ -20,7 +20,7 @@ export function Adicionarpt() {
   const [messageNameHasError, setMessageNameHasError] = useState<string>('');
   const [messageMarcaHasError, setMessageMarcaHasError] = useState<string>('');
   const [messageCorHasError, setMessageCorHasError] = useState<string>('');
-  const [messageValorHasError, setMessageValorHasError] = useState<number>(0);
+  const [messageValorHasError, setMessageValorHasError] = useState<string>('');
 
   //validar campos
   useEffect(() => {
@@ -57,10 +57,10 @@ export function Adicionarpt() {
       setMessageCorHasError('Nome da Cor digitado está no formato inválido');
       isValid = false;
     }
-    // if (valor.length == 1 || !valor.includes('')) {
-    //   setMessageValorHasError('O valor digitado está no formato inválido');
-    //   isValid = false;
-    // }
+    if (valor < 10) {
+      setMessageValorHasError('O valor digitado está no formato inválido, necessario ser maior ou igual que 10 reais');
+      isValid = false;
+    }
 
     return isValid;
   }
@@ -218,19 +218,19 @@ export function Adicionarpt() {
               onChange={(event) => setValor(parseFloat(event.target.value))}
               label={'Valor R$'}
               variant="outlined"
-              // sx={{
-              //   '& .MuiOutlinedInput-root fieldset': {
-              //     borderColor:
-              //       messageValorHasError.length > 0 ? 'red' : 'gray',
-              //   },
-              // }}
+              sx={{
+                '& .MuiOutlinedInput-root fieldset': {
+                  borderColor:
+                    messageValorHasError.length > 0 ? 'red' : 'gray',
+                },
+              }}
               style={{
                 width: '50%',
                 backgroundColor: 'white',
               }}
 
             />
-            {/* <div
+            <div
               style={{
                 marginTop: '-15px',
                 width: '100%',
@@ -241,7 +241,7 @@ export function Adicionarpt() {
               <p>
                 {messageValorHasError.length > 0 ? messageValorHasError : ''}
               </p>
-            </div> */}
+            </div>
           </div>
 
           <div className="forms">
