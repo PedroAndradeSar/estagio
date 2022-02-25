@@ -227,9 +227,12 @@ export function Carrinho() {
           <h3>
             Pagamento realizado com Sucesso!
           </h3>
+          <p>
+            Este pagamento foi realizado com:
+          </p>
         </Typography>
         <Typography className='campgreen'>
-          {mostrarPagamento && Object.entries(pagamento).map(it => { if (it[1] > 0) return <p>{`Usado ${it[1]} de ${it[0]}`}</p> })}
+          {mostrarPagamento && Object.entries(pagamento).map(it => { if (it[1] > 0) return <p>{`Usado ${it[1]} notas de ${it[0]},00`}</p> })}
         </Typography>
 
       </Grid>

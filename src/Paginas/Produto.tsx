@@ -15,6 +15,7 @@ async function deleteProduto(id_produto) {
         const putResponse: AxiosResponse = await NodeAPI.delete(
             `${process.env.REACT_APP_API_URL}/produto/${id_produto}`
         );
+        alert("Seu produto foi excluido com sucesso!")
 
         console.log(putResponse);
         window.location.replace('/home');
@@ -37,20 +38,20 @@ export default function Produto(props: ProdutoProps) {
 
     return (
         <>
-            <Grid style={{ margin: "10px solid blue" }}>
+            <Grid>
 
-                <section style={{ border: "1px solid red" }} className='containerproduto'>
-                    <div className="img" style={{ border: "1px solid green" }} >
+                <section className='containerproduto'>
+                    <div className="img" >
                         <img src={`data:image/jpg;base64,${produtoDTO.foto}`} alt="" />
                     </div>
-                    <div className="campos" style={{ border: "1px solid green" }}>
+                    <div className="campos">
                         <h2 className='camera'>{produtoDTO.nome}</h2>
                         <p className='marca'>{produtoDTO.marca}</p>
                         <p className='valor'>R$: {produtoDTO.valor},00</p>
                         <p className='cor'>Cor: {produtoDTO.cor}</p>
 
                     </div>
-                    <div className="icons" style={{ border: "1px solid green" }}>
+                    <div className="icons">
                         <div>
                             <Button style={{ border: 'none' }} variant="outlined" onClick={() => { window.location.replace('/editar/' + produtoDTO.id_produto) }}>
 

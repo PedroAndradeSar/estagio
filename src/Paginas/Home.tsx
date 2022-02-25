@@ -52,7 +52,7 @@ const Home = () => {
       </Grid>
 
       <Grid>
-        <div className="lista" style={{ border: "1px solid red" }}>
+        <div className="lista">
 
           {produtos.map((it, index) => <Produto key={index} produtoDTO={it} />)}
         </div>
@@ -65,18 +65,6 @@ const Home = () => {
   );
 };
 
-
-{/* <Grid>
-        {produtos.map(produto => {
-          <Produto key={produto} produtoDTO={it}/> })}
-
-      </Grid> */}
-
-
-
-{/* <Button className="adicionar" variant="outlined" startIcon={<AddCircleIcon />}onClick={()=>{window.location.replace('/adicionarproduto')}}>
-            Adicionar Produto
-            </Button> */}
 
 
 export default Home;

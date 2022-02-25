@@ -20,7 +20,7 @@ export function Adicionarpt() {
   const [messageNameHasError, setMessageNameHasError] = useState<string>('');
   const [messageMarcaHasError, setMessageMarcaHasError] = useState<string>('');
 
-
+  //validar campos
   useEffect(() => {
     setMessageNameHasError('');
   }, [nome]);
@@ -31,12 +31,12 @@ export function Adicionarpt() {
 
   function validateUserInputs(): boolean {
     let isValid = true;
-    if (nome.length < 4 || !nome.includes(' ')) {
+    if (nome.length < 4 || !nome.includes('')) {
       setMessageNameHasError('Nome digitado está no formato inválido');
       isValid = false;
     }
 
-    if (marca.length < 4 || !marca.includes(' ')) {
+    if (marca.length < 4 || !marca.includes('')) {
       setMessageMarcaHasError('Marca digitado está no formato inválido');
       isValid = false;
     }
