@@ -47,7 +47,7 @@ footer{
   /* float: left; usado para adicionar a localicade do botão  */
   /* margin-left: 261px ; */
   position: absolute;
-  width: 317px;
+  width: 287px;
   margin-left: 0px;
   margin-top: 937px;
   bottom: 75px;
@@ -58,28 +58,9 @@ footer{
  
 }
 
-
-/* .botao .h1 { não esta sendo usando ainda
-
-  width: 229px;
-  height: 17px;
-  margin-left: 105px;
-  margin-top: 963px;
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 17px;
-
-  text-align: center;
-letter-spacing: 1px;
-
-text-decoration-color: #FFFFFF;
-} */
-
 header h1 {
   text-align: left;
-  width: 345px;
+  width: 325px;
   height: 47px;
   margin-left: 261px;
   top: 177px;
@@ -119,7 +100,7 @@ header h1 {
 
 .forms {
   background-color: white;
-  width: 316.5px;
+  width: 816.5px;
   height: 62.5px;
   margin-left: 261px;
   
@@ -132,7 +113,7 @@ header h1 {
 
 .cash{
   background-color: white;
-  width: 316.5px;
+  width: 516.5px;
   height: 62.5px;
   margin-left: 261px;
   top: 450px;
@@ -154,12 +135,7 @@ header h1 {
 }
 
 .botton{
-  height: 50px;
-  width: 218px;
   margin-left: 261px;
-  background: #0f4c81;
-  color: #ffffff;
-  bottom: 75px;
   display: flex;
   margin-bottom: 7px;
 }
@@ -180,3 +156,5 @@ header h1 {
   display: flex;
 
 }
+
+

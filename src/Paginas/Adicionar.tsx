@@ -131,11 +131,11 @@ export function Adicionarpt() {
               sx={{
                 '& .MuiOutlinedInput-root fieldset': {
                   borderColor:
-                    messageNameHasError.length > 0 ? 'red' : 'green',
+                    messageNameHasError.length > 0 ? 'red' : 'gray',
                 },
               }}
               style={{
-                width: '50%',
+                width: '100%',
                 backgroundColor: 'white',
               }}
 
@@ -153,15 +153,42 @@ export function Adicionarpt() {
               </p>
             </div>
           </div>
+
           <div className="forms">
             <TextField className="forms"
               value={marca}
               onChange={(event) => setMarca(event.target.value)}
               label={'Marca do Produto'}
-              variant="outlined" />
+              variant="outlined"
+              sx={{
+                '& .MuiOutlinedInput-root fieldset': {
+                  borderColor:
+                    messageMarcaHasError.length > 0 ? 'red' : 'gray',
+                },
+              }}
+              style={{
+                width: '100%',
+                backgroundColor: 'white',
+              }}
+
+            />
+            <div
+              style={{
+                marginTop: '15px',
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <p>
+                {messageMarcaHasError.length > 0 ? messageMarcaHasError : ''}
+              </p>
+            </div>
           </div>
 
+
           {/* //teste */}
+
           <div className="cash">
             <TextField
               value={valor}
@@ -169,6 +196,7 @@ export function Adicionarpt() {
               label={'Valor R$'}
               variant="outlined" />
           </div>
+
           <div className="forms">
             <TextField
               value={cor}

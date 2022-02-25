@@ -128,7 +128,7 @@ export function Carrinho() {
       <div className='fatherstyle'>
 
         {/* conteudo a esquedar */}
-        <div className='infosleftstyle' style={{ border: "1px solid cinza" }}>
+        <div className='infosleftstyle' style={{ border: "1px solid #B2B2B2" }}>
           {/* parte de cima     */}
 
           <div>
@@ -179,7 +179,7 @@ export function Carrinho() {
 
         {/* conteudo a direita */}
         <div className='inforigthstyle'>
-          <div className='element' style={{ border: "1px solid red", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+          <div className='element' style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
             <Typography>Subtotal</Typography>
             <Typography >R$: {somavalor()},00</Typography>
           </div>
@@ -204,7 +204,7 @@ export function Carrinho() {
             <Button onClick={() => {
               finallyPayments()
             }}>
-              <span>Pagar</span>
+              <span>             Pagar                 </span>
             </Button>
           </div>
 
@@ -219,7 +219,7 @@ export function Carrinho() {
             Pagamento realizado com Sucesso!
           </h3>
         </Typography>
-        <Typography>
+        <Typography className='campgreen'>
           {mostrarPagamento && Object.entries(pagamento).map(it => { if (it[1] > 0) return <p>{`Usado ${it[1]} de ${it[0]}`}</p> })}
         </Typography>
 
