@@ -26,7 +26,6 @@
     
     .campos{
         justify-content: start;
-        display: flex;
         flex-direction: column;
         flex:auto;
         left: 448px;
@@ -39,26 +38,18 @@
         font-family: Raleway;
     font-style: normal;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
     line-height: 100%;
-  
-    
     font-feature-settings: 'pnum' on, 'lnum' on;
-    
-    /* Blue 2 */
-    
     color: #0F4C81;
     }
     .campos .camera {
     font-family: Raleway;
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 30px;
     line-height: 28px;
     font-feature-settings: 'pnum' on, 'lnum' on;
-    
-    /* Cinza */
-    
     color: #353535;
     }
     .icons
@@ -68,12 +59,3 @@
         margin-right: 140px;
     }
     
-    
-    /* .camera {
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 28px;
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    } */

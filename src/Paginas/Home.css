@@ -33,7 +33,7 @@ header h1 {
   height: 64px;
   margin-right: 261px;
   margin-top: 20px;
-
+  padding: "2vh";
   font-family: Raleway;
   border-radius: 12px;
 }

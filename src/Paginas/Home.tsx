@@ -30,7 +30,7 @@ const Home = () => {
     <div>
       <Grid >
         <div className="topo">
-          <h1 className="pginicial">Produtos</h1>
+          <h1 className="pginicial" >Produtos</h1>
           <div className="botton">
             <Button
 

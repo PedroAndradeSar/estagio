@@ -19,6 +19,8 @@ export function Adicionarpt() {
   const [feedbackMessage, setFeedbackMessage] = useState<string>('');
   const [messageNameHasError, setMessageNameHasError] = useState<string>('');
   const [messageMarcaHasError, setMessageMarcaHasError] = useState<string>('');
+  const [messageCorHasError, setMessageCorHasError] = useState<string>('');
+  const [messageValorHasError, setMessageValorHasError] = useState<number>(0);
 
   //validar campos
   useEffect(() => {
@@ -27,10 +29,21 @@ export function Adicionarpt() {
 
   useEffect(() => {
     setMessageMarcaHasError('');
-  }, [valor]);
+  }, [marca]);
+
+  useEffect(() => {
+    setMessageCorHasError('');
+  }, [cor]);
+
+  ;
+
+
+
 
   function validateUserInputs(): boolean {
-    let isValid = true;
+    let isValid = true;  // useEffect(() => {
+    //   return setMessageValorHasError('');
+    // }, [valor])
     if (nome.length < 4 || !nome.includes('')) {
       setMessageNameHasError('Nome digitado está no formato inválido');
       isValid = false;
@@ -40,8 +53,18 @@ export function Adicionarpt() {
       setMessageMarcaHasError('Marca digitado está no formato inválido');
       isValid = false;
     }
+    if (cor.length < 4 || !cor.includes('')) {
+      setMessageCorHasError('Nome da Cor digitado está no formato inválido');
+      isValid = false;
+    }
+    // if (valor.length == 1 || !valor.includes('')) {
+    //   setMessageValorHasError('O valor digitado está no formato inválido');
+    //   isValid = false;
+    // }
+
     return isValid;
   }
+
 
 
   async function closeSnackbar() {
@@ -194,7 +217,31 @@ export function Adicionarpt() {
               value={valor}
               onChange={(event) => setValor(parseFloat(event.target.value))}
               label={'Valor R$'}
-              variant="outlined" />
+              variant="outlined"
+              // sx={{
+              //   '& .MuiOutlinedInput-root fieldset': {
+              //     borderColor:
+              //       messageValorHasError.length > 0 ? 'red' : 'gray',
+              //   },
+              // }}
+              style={{
+                width: '50%',
+                backgroundColor: 'white',
+              }}
+
+            />
+            {/* <div
+              style={{
+                marginTop: '-15px',
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <p>
+                {messageValorHasError.length > 0 ? messageValorHasError : ''}
+              </p>
+            </div> */}
           </div>
 
           <div className="forms">
@@ -202,7 +249,31 @@ export function Adicionarpt() {
               value={cor}
               onChange={(event) => setCor(event.target.value)}
               label={'Cor'}
-              variant="outlined" />
+              variant="outlined"
+              sx={{
+                '& .MuiOutlinedInput-root fieldset': {
+                  borderColor:
+                    messageCorHasError.length > 0 ? 'red' : 'gray',
+                },
+              }}
+              style={{
+                width: '50%',
+                backgroundColor: 'white',
+              }}
+
+            />
+            <div
+              style={{
+                marginTop: '15px',
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <p>
+                {messageCorHasError.length > 0 ? messageCorHasError : ''}
+              </p>
+            </div>
           </div>
           <div className="date">
             <TextField className="date"

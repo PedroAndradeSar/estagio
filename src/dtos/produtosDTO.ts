@@ -7,6 +7,7 @@ export class ProdutoDTO {
     marca: string;
 
 
+
     constructor(nome: string, valor: number, foto: string, cor: string, marca: string, id_produto?: number) {
         this.nome = nome;
         this.valor = valor;

@@ -44,7 +44,7 @@ export default function Produto(props: ProdutoProps) {
                     <div className="img" >
                         <img src={`data:image/jpg;base64,${produtoDTO.foto}`} alt="" />
                     </div>
-                    <div className="campos">
+                    <div className="campos" >
                         <h2 className='camera'>{produtoDTO.nome}</h2>
                         <p className='marca'>{produtoDTO.marca}</p>
                         <p className='valor'>R$: {produtoDTO.valor},00</p>
