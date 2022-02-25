@@ -128,7 +128,7 @@ export function Carrinho() {
       <div className='fatherstyle'>
 
         {/* conteudo a esquedar */}
-        <div className='infosleftstyle' style={{ border: "1px solid #B2B2B2" }}>
+        <div className='infosleftstyle' style={{ border: "1px solid #B2B2B2", padding: "2vh" }}>
           {/* parte de cima     */}
 
           <div>
@@ -180,31 +180,40 @@ export function Carrinho() {
         {/* conteudo a direita */}
         <div className='inforigthstyle'>
           <div className='element' style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-            <Typography>Subtotal</Typography>
-            <Typography >R$: {somavalor()},00</Typography>
+            <p>Subtotal</p>
+            <p >R$: {somavalor()},00</p>
           </div>
           <div className='divisionrigthone'>
             <Divider></Divider>
           </div>
           <Divider className='divisionrigth'></Divider>
           <div className='element'>
-            <Typography >Frete</Typography>
-            <Typography>R$: {somavalor() / 10},00</Typography>
+            <p >Frete</p>
+            <p>R$: {somavalor() / 10},00</p>
           </div>
           <div className='divisionrigthtwo'>
             <Divider></Divider>
           </div>
           <div className='element'>
-            <Typography>Valor Total</Typography>
-            <Typography>R$: {pagartotal()},00</Typography>
+            <p>Valor Total</p>
+            <p>R$: {pagartotal()},00</p>
           </div>
 
 
-          <div className='pagamento'>
-            <Button onClick={() => {
-              finallyPayments()
-            }}>
-              <span>             Pagar                 </span>
+          <div style={{
+            padding: "2vh"
+          }} >
+            <Button
+              style={{
+                backgroundColor: "blue",
+                color: "white",
+                padding: "1vh"
+              }}
+              fullWidth
+              onClick={() => {
+                finallyPayments()
+              }}>
+              <span>Pagar</span>
             </Button>
           </div>
 
