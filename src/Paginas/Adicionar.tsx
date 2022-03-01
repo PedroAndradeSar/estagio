@@ -165,7 +165,7 @@ export function Adicionarpt() {
             />
             <div
               style={{
-                marginTop: '-15px',
+                marginTop: '-20px',
                 width: '100%',
                 display: 'flex',
                 justifyContent: 'center',
@@ -197,7 +197,7 @@ export function Adicionarpt() {
             />
             <div
               style={{
-                marginTop: '15px',
+                marginTop: '-20px',
                 width: '100%',
                 display: 'flex',
                 justifyContent: 'center',
@@ -225,14 +225,14 @@ export function Adicionarpt() {
                 },
               }}
               style={{
-                width: '50%',
+                width: '79%',
                 backgroundColor: 'white',
               }}
 
             />
             <div
               style={{
-                marginTop: '-15px',
+                marginTop: '-20px',
                 width: '100%',
                 display: 'flex',
                 justifyContent: 'center',
@@ -264,7 +264,7 @@ export function Adicionarpt() {
             />
             <div
               style={{
-                marginTop: '15px',
+                marginTop: '-20px',
                 width: '100%',
                 display: 'flex',
                 justifyContent: 'center',

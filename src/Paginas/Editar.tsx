@@ -20,6 +20,8 @@ export function Editar() {
   const [feedbackMessage, setFeedbackMessage] = useState<string>('');
   const [messageNomeHasError, setMessageNomeHasError] = useState<string>('');
   const [messageMarcaHasError, setMessageMarcaHasError] = useState<string>('');
+  const [messageCorHasError, setMessageCorHasError] = useState<string>('');
+  const [messageValorHasError, setMessageValorHasError] = useState<string>('');
 
   useEffect(() => {
     setMessageNomeHasError('');
@@ -29,17 +31,38 @@ export function Editar() {
     setMessageMarcaHasError('');
   }, [valor]);
 
+  useEffect(() => {
+    setMessageMarcaHasError('');
+  }, [marca]);
+
+  useEffect(() => {
+    setMessageCorHasError('');
+  }, [cor]);
+
+
+
+
   function validateUserInputs(): boolean {
     let isValid = true;
-    if (nome.length < 4 || !nome.includes(' ')) {
+    if (nome.length < 4 || !nome.includes('')) {
       setMessageNomeHasError('Nome digitado está no formato inválido');
       isValid = false;
     }
 
-    if (marca.length < 4 || !marca.includes(' ')) {
+    if (marca.length < 4 || !marca.includes('')) {
       setMessageMarcaHasError('Marca digitado está no formato inválido');
       isValid = false;
     }
+    if (cor.length < 4 || !cor.includes('')) {
+      setMessageCorHasError('Nome da Cor digitado está no formato inválido');
+      isValid = false;
+    }
+    if (valor < 10) {
+      setMessageValorHasError('O valor digitado está no formato inválido, necessario ser maior ou igual que 10 reais');
+      isValid = false;
+    }
+
+
     return isValid;
   }
 
@@ -84,30 +107,33 @@ export function Editar() {
       marca,
       Number(id_produto))
     console.log(foto)
-    try {
-      const putResponse: AxiosResponse = await NodeAPI.put(
-        `${process.env.REACT_APP_API_URL}/produto/${id_produto}`,
-        produtoDTO
-      );
+    const isValidInputs = validateUserInputs();
+    if (isValidInputs) {
+      try {
+        const putResponse: AxiosResponse = await NodeAPI.put(
+          `${process.env.REACT_APP_API_URL}/produto/${id_produto}`,
+          produtoDTO
+        );
 
-      setFeedbackMessage('Usuário cadastrado com sucesso');
-      setSeverety('success');
-      setIsOpen(true);
-      navigate('/home')
-      setNome('');
-      setValor(0);
-      setCor('');
-      setFoto('');
-      setMarca('');
-      // if (nome === '') {//para nao criar campo vazio 
-      //   alert("nomevazil")
-      // }
-      console.log(putResponse);
-    } catch (error) {
-      setFeedbackMessage('Usuário cadastrado não foi cadastrado');
-      setSeverety('error');
-      setIsOpen(true);
-      console.log(error);
+        setFeedbackMessage('Usuário cadastrado com sucesso');
+        setSeverety('success');
+        setIsOpen(true);
+        navigate('/home')
+        setNome('');
+        setValor(0);
+        setCor('');
+        setFoto('');
+        setMarca('');
+        // if (nome === '') {//para nao criar campo vazio 
+        //   alert("nomevazil")
+        // }
+        console.log(putResponse);
+      } catch (error) {
+        setFeedbackMessage('Usuário cadastrado não foi cadastrado');
+        setSeverety('error');
+        setIsOpen(true);
+        console.log(error);
+      }
     }
   }
 
@@ -138,7 +164,6 @@ export function Editar() {
         <header>
           <nav className="caminho">
             <Link to="/home">Home &gt; </Link>
-
             <Link to="/editar/:id_produtor">Editar Produto &gt; </Link>
           </nav>
           <h1>Editar Produto</h1>
@@ -166,7 +191,7 @@ export function Editar() {
             />
             <div
               style={{
-                marginTop: '15px',
+                marginTop: '-20px',
                 width: '100%',
                 display: 'flex',
                 justifyContent: 'center',
@@ -197,7 +222,7 @@ export function Editar() {
             />
             <div
               style={{
-                marginTop: '15px',
+                marginTop: '-20px',
                 width: '100%',
                 display: 'flex',
                 justifyContent: 'center',
@@ -214,14 +239,62 @@ export function Editar() {
               value={valor}
               onChange={(event) => setValor(parseFloat(event.target.value))}
               label={'Valor R$'}
-              variant="outlined" />
+              variant="outlined"
+              sx={{
+                '& .MuiOutlinedInput-root fieldset': {
+                  borderColor:
+                    messageValorHasError.length > 0 ? 'red' : 'gray',
+                },
+              }}
+              style={{
+                width: '79%',
+                backgroundColor: 'white',
+              }}
+            />
+            <div
+              style={{
+                marginTop: '-20px',
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <p>
+                {messageValorHasError.length > 0 ? messageValorHasError : ''}
+              </p>
+            </div>
           </div>
+
           <div className="forms">
             <TextField
               value={cor}
               onChange={(event) => setCor(event.target.value)}
               label={'Cor'}
-              variant="outlined" />
+              variant="outlined"
+              sx={{
+                '& .MuiOutlinedInput-root fieldset': {
+                  borderColor:
+                    messageCorHasError.length > 0 ? 'red' : 'gray',
+                },
+              }}
+              style={{
+                width: '50%',
+                backgroundColor: 'white',
+              }}
+
+            />
+            <div
+              style={{
+                marginTop: '-20px',
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <p>
+                {messageCorHasError.length > 0 ? messageCorHasError : ''}
+              </p>
+            </div>
           </div>
           <div className="date">
             <TextField className="date"
@@ -278,11 +351,6 @@ export function Editar() {
               Editar Produto
             </h3>
           </Button>
-        </div>
-        <div>
-          {/* <footer className="footer">
-           <button className="botao"> <h1>Adicionar Produto</h1> </button>
-            </footer> */}
         </div>
       </div>
       <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right' }}

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { NodeAPI } from 'services/Services';
 import '../Paginas/Carrinho.css'
 import { ProdutoDTO } from 'dtos/produtosDTO';
@@ -172,7 +172,7 @@ export function Carrinho() {
             </Button>
             <div className='totalcash'>
 
-              <span className='cash'>R$:{valor},00</span>
+              <span className='cash'>R$:{valor.toFixed(2)}</span>
             </div>
           </div>
         </div>
@@ -205,7 +205,7 @@ export function Carrinho() {
           }} >
             <Button
               style={{
-                backgroundColor: "blue",
+                backgroundColor: "#0F4C81",
                 color: "white",
                 padding: "1vh"
               }}
